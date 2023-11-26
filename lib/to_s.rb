@@ -58,3 +58,61 @@ def some_method
 end
 
 puts some_method
+
+
+# ヒアドキュメントの中では式展開が有効
+name = 'Alice'
+a = <<TEXT
+ようこそ、#{name}さん！
+以下のメッセージをご覧ください。
+TEXT
+puts a
+
+# <<'TEXT'　のように、識別子をシングルクオートで囲むと式展開が無効になる
+name = 'Alice'
+a = <<'TEXT'
+ようこそ、#{name}さん！
+以下のメッセージをご覧ください。
+TEXT
+puts a
+
+# ダブルクオートで囲むと有効になる
+name = 'Alice'
+a = <<"TEXT"
+ようこそ、#{name}さん！
+以下のメッセージをご覧ください。
+TEXT
+puts a
+
+# 式展開だけでなく、\n（バックスラッシュ）付きの文字の扱いも同じ
+name = 'Alice'
+a = <<"TEXT"
+ようこそ、#{name}さん！
+こんにちは\nさようなら
+TEXT
+puts a
+
+# 開始ラベルの<<識別子は1つの式とみなされるので、引数として渡したり、メソッドを呼び出したりもできる
+a = 'Ruby'
+a.prepend(<<TEXT)
+Java
+Python
+TEXT
+puts a
+
+b = <<TEXT.upcase
+Hello,
+Good-bye.
+TEXT
+puts b
+
+c = [<<TEXT1,<<TEXT2]
+Alice
+Bob
+TEXT1
+Matz
+Jnchito
+TEXT2
+
+puts c[0]
+puts c[1]
