@@ -6,8 +6,8 @@ something = "Hello."
 # %! ! もダブルクオートで囲んだことと同じになる
 something = "Bye."
  puts %!He said, "#{something}"!
- 
- 
+
+
 # ?を区切り文字として使う
 puts %q?He said, "Don't speak."?
 # {}を区切り文字として使う
@@ -132,3 +132,13 @@ puts 'Hi!' * 10
 
 # ダブルクオートと\uを組み合わせてUnicodeのコードポイントから文字列を作成
 puts "\u3042\u3044\u3046"
+
+# 2進数
+puts 0b11111111
+
+# 8進数
+puts 0377
+puts 0o377
+
+# 10進数(ほとんどない)：0d付ける
+puts 0d255
